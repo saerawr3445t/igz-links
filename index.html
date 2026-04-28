@@ -30,15 +30,15 @@
   .cursor-glow{
     position:fixed;
     top:0;left:0;
-    width:500px;height:500px;
+    width:300px;height:300px;
     border-radius:50%;
-    background:radial-gradient(circle,#7c3aed40 0%,#06b6d420 30%,transparent 65%);
+    background:radial-gradient(circle,#7c3aed1f 0%,#06b6d40f 30%,transparent 70%);
     transform:translate(-50%,-50%);
     pointer-events:none;
     z-index:0;
-    transition:opacity .3s;
+    transition:opacity .4s;
     mix-blend-mode:screen;
-    filter:blur(20px);
+    filter:blur(30px);
   }
   .card{
     width:100%;
@@ -218,29 +218,28 @@
     mx=e.clientX;my=e.clientY;
     glow.style.left=mx+'px';
     glow.style.top=my+'px';
-    glow.style.opacity='1';
+    glow.style.opacity='.7';
     moving=true;
     clearTimeout(moveTimer);
-    moveTimer=setTimeout(()=>{moving=false;glow.style.opacity='.4';},150);
+    moveTimer=setTimeout(()=>{moving=false;glow.style.opacity='.25';},200);
 
     const dx=mx-lastMx,dy=my-lastMy;
     const speed=Math.min(Math.hypot(dx,dy),40);
-    const count=Math.max(1,Math.floor(speed/4));
-    for(let i=0;i<count;i++){
+    if(speed>3 && Math.random()<.5){
       particles.push({
-        x:mx+(Math.random()-.5)*8,
-        y:my+(Math.random()-.5)*8,
-        vx:(Math.random()-.5)*1.5+dx*.05,
-        vy:(Math.random()-.5)*1.5+dy*.05-.3,
+        x:mx+(Math.random()-.5)*4,
+        y:my+(Math.random()-.5)*4,
+        vx:(Math.random()-.5)*.6+dx*.02,
+        vy:(Math.random()-.5)*.6+dy*.02-.2,
         life:1,
-        size:Math.random()*4+2,
+        size:Math.random()*2+1.2,
         color:colors[Math.floor(Math.random()*colors.length)]
       });
     }
     lastMx=mx;lastMy=my;
   });
 
-  glow.style.opacity='.4';
+  glow.style.opacity='.25';
   glow.style.left=mx+'px';
   glow.style.top=my+'px';
 
@@ -249,12 +248,12 @@
     for(let i=particles.length-1;i>=0;i--){
       const p=particles[i];
       p.x+=p.vx;p.y+=p.vy;
-      p.vy+=.02;
-      p.life-=.02;
+      p.vy+=.015;
+      p.life-=.025;
       if(p.life<=0){particles.splice(i,1);continue;}
-      ctx.globalAlpha=p.life;
+      ctx.globalAlpha=p.life*.55;
       ctx.fillStyle=p.color;
-      ctx.shadowBlur=15;
+      ctx.shadowBlur=8;
       ctx.shadowColor=p.color;
       ctx.beginPath();
       ctx.arc(p.x,p.y,p.size*p.life,0,Math.PI*2);
@@ -269,8 +268,8 @@
   document.querySelectorAll('.link').forEach(el=>{
     el.addEventListener('pointermove',e=>{
       const r=el.getBoundingClientRect();
-      const x=((e.clientX-r.left)/r.width-.5)*8;
-      const y=((e.clientY-r.top)/r.height-.5)*8;
+      const x=((e.clientX-r.left)/r.width-.5)*3;
+      const y=((e.clientY-r.top)/r.height-.5)*3;
       el.style.transform=`translateY(-2px) rotateX(${-y}deg) rotateY(${x}deg)`;
     });
     el.addEventListener('pointerleave',()=>{el.style.transform='';});
