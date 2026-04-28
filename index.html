@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IGZ - כל הקישורים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{min-height:100%}
+  body{
+    font-family:'Heebo',system-ui,sans-serif;
+    background:
+      radial-gradient(circle at 20% 0%,#7c3aed33 0%,transparent 50%),
+      radial-gradient(circle at 80% 100%,#06b6d433 0%,transparent 50%),
+      #0a0a0f;
+    color:#fff;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:32px 16px;
+  }
+  .card{
+    width:100%;
+    max-width:560px;
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:28px;
+    padding:36px 28px;
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+  }
+  .header{text-align:center;margin-bottom:32px}
+  .avatar{
+    width:128px;height:128px;border-radius:50%;
+    margin:0 auto 16px;
+    box-shadow:0 10px 30px rgba(124,58,237,.5);
+    border:3px solid rgba(255,255,255,.15);
+    object-fit:cover;
+    display:block;
+  }
+  h1{font-size:28px;font-weight:900;margin-bottom:6px}
+  .handle{color:#a5b4fc;font-size:15px;font-weight:600}
+  .bio{color:#cbd5e1;font-size:14px;margin-top:10px;line-height:1.6}
+  .section{margin-top:28px}
+  .section-title{
+    font-size:13px;font-weight:800;letter-spacing:1px;
+    color:#94a3b8;text-transform:uppercase;
+    margin-bottom:12px;padding-right:4px;
+  }
+  .links{display:flex;flex-direction:column;gap:12px}
+  .link{
+    display:flex;align-items:center;gap:14px;
+    padding:16px 18px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;
+    color:#fff;text-decoration:none;
+    font-weight:600;font-size:16px;
+    transition:all .2s ease;
+    position:relative;
+  }
+  .link:hover{
+    transform:translateY(-2px);
+    background:rgba(255,255,255,.1);
+    border-color:rgba(255,255,255,.2);
+    box-shadow:0 8px 24px rgba(0,0,0,.3);
+  }
+  .icon{
+    width:42px;height:42px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+    font-size:20px;
+  }
+  .icon svg{width:22px;height:22px;fill:#fff}
+  .yt{background:#ff0033}
+  .kick{background:#53fc18;color:#000}
+  .kick svg{fill:#000}
+  .tt{background:#000;border:1px solid #333}
+  .ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+  .x{background:#000;border:1px solid #333}
+  .dc{background:#5865f2}
+  .text{flex:1;text-align:right}
+  .text small{display:block;color:#94a3b8;font-size:12px;font-weight:500;margin-top:2px}
+  .arrow{color:#64748b;font-size:18px;transition:transform .2s}
+  .link:hover .arrow{transform:translateX(-4px);color:#fff}
+  footer{text-align:center;margin-top:28px;color:#64748b;font-size:12px}
+</style>
+</head>
+<body>
+  <main class="card">
+    <header class="header">
+      <img class="avatar" src="igz-logo.webp" alt="IGZ">
+      <h1>IGZ</h1>
+      <div class="handle">@IGZlinks</div>
+      <p class="bio">תוכן הערוץ: גיימינג, צחוקים, דאחקות ועוד..</p>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title">ערוצי תוכן</h2>
+      <div class="links">
+        <a class="link" href="https://www.youtube.com/@IGZYoutube?sub_confirmation=1" target="_blank" rel="noopener">
+          <span class="icon yt">
+            <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+          </span>
+          <span class="text">ערוץ היוטיוב הראשי<small>youtube.com/@IGZYoutube</small></span>
+          <span class="arrow">›</span>
+        </a>
+
+        <a class="link" href="https://www.youtube.com/@IGZspam" target="_blank" rel="noopener">
+          <span class="icon yt">
+            <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+          </span>
+          <span class="text">ערוץ הקליפים<small>youtube.com/@IGZspam</small></span>
+          <span class="arrow">›</span>
+        </a>
+
+        <a class="link" href="https://kick.com/igz" target="_blank" rel="noopener">
+          <span class="icon kick">
+            <svg viewBox="0 0 24 24"><path d="M3 3h5v4h2V5h2V3h5v4h-2v2h-2v2h-2v2h2v2h2v2h2v4h-5v-2h-2v-2h-2v2H8v2H3V3z"/></svg>
+          </span>
+          <span class="text">ערוץ הסטרימים ב-Kick<small>kick.com/igz</small></span>
+          <span class="arrow">›</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">רשתות חברתיות</h2>
+      <div class="links">
+        <a class="link" href="https://www.tiktok.com/@real.igz" target="_blank" rel="noopener">
+          <span class="icon tt">
+            <svg viewBox="0 0 24 24"><path d="M19.6 6.3c-1.3 0-2.5-.5-3.3-1.4-.8-.8-1.3-1.9-1.4-3.1V1.5h-3.4v13.2c0 .9-.4 1.7-1 2.3s-1.4.9-2.3.9c-1.8 0-3.3-1.5-3.3-3.3s1.5-3.3 3.3-3.3c.3 0 .7 0 1 .1V8c-.3 0-.7-.1-1-.1C4.6 7.9 1.5 11 1.5 14.7s3.1 6.8 6.7 6.8c3.6 0 6.8-3 6.8-6.8V8.4c1.3.9 2.9 1.4 4.6 1.4V6.3z"/></svg>
+          </span>
+          <span class="text">TikTok<small>@real.igz</small></span>
+          <span class="arrow">›</span>
+        </a>
+
+        <a class="link" href="https://www.instagram.com/michaeligz/" target="_blank" rel="noopener">
+          <span class="icon ig">
+            <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.9.9 1.4.2.4.4 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.9.7-1.4.9-.4.2-1 .4-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.9-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.9-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 5.8.1 5 .3 4.2.6c-.8.3-1.5.7-2.2 1.4C1.3 2.7.9 3.4.6 4.2.3 5 .1 5.8.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.2.3 2.1.6 2.9.3.8.7 1.5 1.4 2.2.7.7 1.4 1.1 2.2 1.4.8.3 1.6.5 2.9.6 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c1.2-.1 2.1-.3 2.9-.6.8-.3 1.5-.7 2.2-1.4.7-.7 1.1-1.4 1.4-2.2.3-.8.5-1.6.6-2.9.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.2-.3-2.1-.6-2.9-.3-.8-.7-1.5-1.4-2.2C21.3 1.3 20.6.9 19.8.6 19 .3 18.2.1 16.9.1 15.7 0 15.3 0 12 0zm0 5.8c-3.4 0-6.2 2.8-6.2 6.2s2.8 6.2 6.2 6.2 6.2-2.8 6.2-6.2S15.4 5.8 12 5.8zm0 10.2c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm6.4-11.8c-.8 0-1.4.6-1.4 1.4 0 .8.6 1.4 1.4 1.4.8 0 1.4-.6 1.4-1.4 0-.8-.6-1.4-1.4-1.4z"/></svg>
+          </span>
+          <span class="text">Instagram<small>@michaeligz</small></span>
+          <span class="arrow">›</span>
+        </a>
+
+        <a class="link" href="https://x.com/michaelelitzur" target="_blank" rel="noopener">
+          <span class="icon x">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </span>
+          <span class="text">X (Twitter)<small>@michaelelitzur</small></span>
+          <span class="arrow">›</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">קהילה</h2>
+      <div class="links">
+        <a class="link" href="https://discord.gg/C6KAdNVfSH" target="_blank" rel="noopener">
+          <span class="icon dc">
+            <svg viewBox="0 0 24 24"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.2.3a14 14 0 0 0-4.4 0L10.6 3a19.8 19.8 0 0 0-4.9 1.5C2.6 9 1.7 13.5 2.1 18a19.9 19.9 0 0 0 6 3l.5-.7a13 13 0 0 1-2-1c.2-.1.3-.2.5-.4 3.9 1.8 8 1.8 11.8 0l.5.4a13 13 0 0 1-2 1l.5.7a19.9 19.9 0 0 0 6-3c.5-5.2-.7-9.6-3.6-13.6zM8.5 15.3c-1.2 0-2.2-1.1-2.2-2.5s1-2.5 2.2-2.5c1.2 0 2.2 1.1 2.2 2.5s-1 2.5-2.2 2.5zm7 0c-1.2 0-2.2-1.1-2.2-2.5s1-2.5 2.2-2.5c1.2 0 2.2 1.1 2.2 2.5s-1 2.5-2.2 2.5z"/></svg>
+          </span>
+          <span class="text">שרת הדיסקורד<small>קהילה של 1500+ חברים</small></span>
+          <span class="arrow">›</span>
+        </a>
+      </div>
+    </section>
+
+    <footer>© IGZ · כל הזכויות שמורות</footer>
+  </main>
+</body>
+</html>
