@@ -22,6 +22,23 @@
     align-items:center;
     justify-content:center;
     padding:32px 16px;
+    overflow:hidden;
+    position:relative;
+  }
+  #fx{position:fixed;inset:0;pointer-events:none;z-index:0}
+  .card{position:relative;z-index:1}
+  .cursor-glow{
+    position:fixed;
+    top:0;left:0;
+    width:500px;height:500px;
+    border-radius:50%;
+    background:radial-gradient(circle,#7c3aed40 0%,#06b6d420 30%,transparent 65%);
+    transform:translate(-50%,-50%);
+    pointer-events:none;
+    z-index:0;
+    transition:opacity .3s;
+    mix-blend-mode:screen;
+    filter:blur(20px);
   }
   .card{
     width:100%;
@@ -92,6 +109,8 @@
 </style>
 </head>
 <body>
+  <canvas id="fx"></canvas>
+  <div class="cursor-glow" id="glow"></div>
   <main class="card">
     <header class="header">
       <img class="avatar" src="igz-logo.webp" alt="IGZ">
@@ -173,5 +192,90 @@
 
     <footer>© IGZ · כל הזכויות שמורות</footer>
   </main>
+<script>
+(()=>{
+  const cv=document.getElementById('fx');
+  const ctx=cv.getContext('2d');
+  const glow=document.getElementById('glow');
+  let w,h,dpr;
+  const resize=()=>{
+    dpr=window.devicePixelRatio||1;
+    w=cv.width=innerWidth*dpr;
+    h=cv.height=innerHeight*dpr;
+    cv.style.width=innerWidth+'px';
+    cv.style.height=innerHeight+'px';
+    ctx.scale(dpr,dpr);
+  };
+  resize();
+  addEventListener('resize',resize);
+
+  const colors=['#7c3aed','#06b6d4','#a855f7','#22d3ee','#ec4899'];
+  const particles=[];
+  let mx=innerWidth/2,my=innerHeight/2,lastMx=mx,lastMy=my;
+  let moving=false,moveTimer;
+
+  addEventListener('pointermove',e=>{
+    mx=e.clientX;my=e.clientY;
+    glow.style.left=mx+'px';
+    glow.style.top=my+'px';
+    glow.style.opacity='1';
+    moving=true;
+    clearTimeout(moveTimer);
+    moveTimer=setTimeout(()=>{moving=false;glow.style.opacity='.4';},150);
+
+    const dx=mx-lastMx,dy=my-lastMy;
+    const speed=Math.min(Math.hypot(dx,dy),40);
+    const count=Math.max(1,Math.floor(speed/4));
+    for(let i=0;i<count;i++){
+      particles.push({
+        x:mx+(Math.random()-.5)*8,
+        y:my+(Math.random()-.5)*8,
+        vx:(Math.random()-.5)*1.5+dx*.05,
+        vy:(Math.random()-.5)*1.5+dy*.05-.3,
+        life:1,
+        size:Math.random()*4+2,
+        color:colors[Math.floor(Math.random()*colors.length)]
+      });
+    }
+    lastMx=mx;lastMy=my;
+  });
+
+  glow.style.opacity='.4';
+  glow.style.left=mx+'px';
+  glow.style.top=my+'px';
+
+  const tick=()=>{
+    ctx.clearRect(0,0,innerWidth,innerHeight);
+    for(let i=particles.length-1;i>=0;i--){
+      const p=particles[i];
+      p.x+=p.vx;p.y+=p.vy;
+      p.vy+=.02;
+      p.life-=.02;
+      if(p.life<=0){particles.splice(i,1);continue;}
+      ctx.globalAlpha=p.life;
+      ctx.fillStyle=p.color;
+      ctx.shadowBlur=15;
+      ctx.shadowColor=p.color;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.size*p.life,0,Math.PI*2);
+      ctx.fill();
+    }
+    ctx.globalAlpha=1;
+    ctx.shadowBlur=0;
+    requestAnimationFrame(tick);
+  };
+  tick();
+
+  document.querySelectorAll('.link').forEach(el=>{
+    el.addEventListener('pointermove',e=>{
+      const r=el.getBoundingClientRect();
+      const x=((e.clientX-r.left)/r.width-.5)*8;
+      const y=((e.clientY-r.top)/r.height-.5)*8;
+      el.style.transform=`translateY(-2px) rotateX(${-y}deg) rotateY(${x}deg)`;
+    });
+    el.addEventListener('pointerleave',()=>{el.style.transform='';});
+  });
+})();
+</script>
 </body>
 </html>
